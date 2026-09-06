@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<title>News:efootball_masters</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@500;700;900&family=Tajawal:wght@400;500;700&display=swap');
+
+  :root{
+    --ink:#150C2E;
+    --deep:#231145;
+    --violet:#4B2A8F;
+    --gold:#FFC24B;
+    --gold-deep:#E8A020;
+    --pink:#FF5CA8;
+    --cyan:#3FE0D0;
+    --paper:#FFF7E8;
+  }
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+
+  body{
+    font-family:'Tajawal', sans-serif;
+    background:
+      radial-gradient(circle at 15% 10%, #3a1f70 0%, transparent 45%),
+      radial-gradient(circle at 85% 85%, #2a1450 0%, transparent 50%),
+      var(--ink);
+    color:var(--paper);
+    padding:48px 20px;
+    min-height:100vh;
+    overflow-x:hidden;
+  }
+
+  .wrap{
+    max-width:640px;
+    margin:0 auto;
+  }
+
+  .section-tag{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:28px;
+  }
+  .section-tag .bullhorn{
+    font-size:1.6rem;
+    filter:drop-shadow(0 0 10px rgba(255,194,75,.6));
+  }
+  .section-tag h1{
+    font-family:'Cairo', sans-serif;
+    font-weight:900;
+    font-size:1.7rem;
+    letter-spacing:0.5px;
+  }
+
+  .card{
+    position:relative;
+    border-radius:26px;
+    padding:28px 26px;
+    margin-bottom:22px;
+    overflow:hidden;
+    isolation:isolate;
+  }
+
+  /* ---- Card 1: registration open ---- */
+  .card.reg{
+    background:linear-gradient(135deg, var(--violet) 0%, #6B3FB8 55%, #8A4FD6 100%);
+    border:1px solid rgba(255,255,255,.12);
+  }
+  .card.reg::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+      radial-gradient(circle at 90% -10%, rgba(255,255,255,.22), transparent 40%);
+    z-index:-1;
+  }
+  .reg .flame{
+    font-size:1.9rem;
+    display:inline-block;
+    margin-bottom:10px;
+  }
+  .reg h2{
+    font-family:'Cairo', sans-serif;
+    font-weight:900;
+    font-size:1.5rem;
+    line-height:1.5;
+    margin-bottom:8px;
+  }
+  .reg p{
+    font-size:0.98rem;
+    line-height:1.9;
+    color:rgba(255,247,232,.88);
+    max-width:34ch;
+  }
+  .cta{
+    display:inline-block;
+    margin-top:18px;
+    background:var(--gold);
+    color:#2A1500;
+    font-weight:700;
+    font-size:0.95rem;
+    padding:11px 26px;
+    border-radius:999px;
+    box-shadow:0 6px 18px rgba(255,194,75,.35);
+  }
+
+  /* ---- Card: join & vote ---- */
+  .card.vote{
+    background:linear-gradient(135deg, #1F8A70 0%, #12B886 55%, #2FE0A8 100%);
+    border:1px solid rgba(255,255,255,.12);
+  }
+  .card.vote::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:radial-gradient(circle at 90% -10%, rgba(255,255,255,.22), transparent 40%);
+    z-index:-1;
+  }
+  .vote h2{
+    font-family:'Cairo', sans-serif;
+    font-weight:900;
+    font-size:1.5rem;
+    line-height:1.5;
+    margin-bottom:8px;
+  }
+  .vote p{
+    font-size:0.98rem;
+    line-height:1.9;
+    color:rgba(255,247,232,.9);
+    max-width:36ch;
+  }
+  .cta-alt{
+    background:#0B3D2E;
+    color:var(--paper) !important;
+  }
+
+  /* ---- Card 2: congratulations trophy ---- */
+  .card.trophy{
+    background:linear-gradient(160deg, #241238 0%, #180D28 100%);
+    border:1px solid rgba(255,194,75,.25);
+    text-align:center;
+    padding:40px 24px 34px;
+  }
+  .starfield{
+    position:absolute;
+    inset:0;
+    z-index:-1;
+  }
+  .starfield span{
+    position:absolute;
+    color:var(--gold);
+    opacity:.85;
+  }
+  .trophy-glow{
+    position:absolute;
+    top:-40px; left:50%;
+    transform:translateX(-50%);
+    width:260px; height:260px;
+    background:radial-gradient(circle, rgba(255,194,75,.35) 0%, transparent 70%);
+    z-index:-1;
+  }
+  .trophy-emoji{
+    font-size:3.6rem;
+    display:block;
+    margin-bottom:6px;
+    filter:drop-shadow(0 8px 20px rgba(255,194,75,.5));
+  }
+  .trophy .eyebrow{
+    font-family:'Cairo', sans-serif;
+    font-weight:700;
+    font-size:0.85rem;
+    color:var(--cyan);
+    margin-bottom:6px;
+  }
+  .trophy h2{
+    font-family:'Cairo', sans-serif;
+    font-weight:900;
+    font-size:2.1rem;
+    background:linear-gradient(90deg, var(--gold) 0%, #FFE7A8 50%, var(--gold) 100%);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    margin-bottom:10px;
+  }
+  .trophy .name{
+    font-family:'Cairo', sans-serif;
+    font-weight:900;
+    font-size:2.6rem;
+    color:var(--paper);
+    margin-bottom:14px;
+    text-shadow:0 0 24px rgba(255,92,168,.5);
+  }
+  .trophy p{
+    font-size:0.95rem;
+    color:rgba(255,247,232,.75);
+    line-height:1.8;
+    max-width:32ch;
+    margin:0 auto;
+  }
+  .confetti-row{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    margin-top:20px;
+    font-size:1.2rem;
+  }
+
+  @media (max-width:420px){
+    .trophy .name{font-size:2.1rem;}
+    .trophy h2{font-size:1.7rem;}
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <div class="section-tag">
+    <span class="bullhorn">📢</span>
+    <h1>News:efootball_masters</h1>
+  </div>
+
+  <div class="card reg">
+    <span class="flame">🔥</span>
+    <h2>Registration for the new tournament is now open (champions cup!)</h2>
+    <p>scroll down and join group and vote 🐦‍🔥🐦‍🔥</p>
+    <a class="cta" href="#" style="text-decoration:none;">Register now</a>
+  </div>
+
+  <div class="card vote">
+    <span class="flame">🗳️</span>
+    <h2>Join the group and vote here</h2>
+    <p>Hop into our WhatsApp group to have your say and cast your vote.</p>
+    <a class="cta cta-alt" href="https://chat.whatsapp.com/JSJch2tadQxBFm0JaGsJD7" target="_blank" rel="noopener" style="text-decoration:none;">Join &amp; Vote</a>
+  </div>
+
+  <div class="card trophy">
+    <div class="trophy-glow"></div>
+    <div class="starfield">
+      <span style="top:10%; right:12%; font-size:1.1rem;">★</span>
+      <span style="top:22%; left:8%; font-size:0.8rem;">✦</span>
+      <span style="top:55%; left:14%; font-size:1.3rem;">★</span>
+      <span style="top:65%; right:8%; font-size:0.9rem;">✦</span>
+      <span style="top:8%; left:40%; font-size:0.7rem;">✦</span>
+      <span style="bottom:8%; right:30%; font-size:1rem;">★</span>
+      <span style="top:38%; right:22%; font-size:0.6rem;">✦</span>
+    </div>
+    <span class="trophy-emoji">🏆</span>
+    <div class="eyebrow">Tournament Champion</div>
+    <h2>Congratulations</h2>
+    <div class="name">...!</div>
+    <p>An achievement well deserved. Keep shining, and we'll see you in the next tournament.</p>
+    <div class="confetti-row">🎉 🥇 🎊</div>
+  </div>
+
+</div>
+
+</body>
+</html>
