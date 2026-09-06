@@ -24,6 +24,7 @@
     --pink:#FF5CA8;
     --cyan:#3FE0D0;
     --paper:#FFF7E8;
+    --row-alt:rgba(255,255,255,.04);
   }
 
   *{box-sizing:border-box; margin:0; padding:0;}
@@ -112,6 +113,9 @@
     padding:11px 26px;
     border-radius:999px;
     box-shadow:0 6px 18px rgba(255,194,75,.35);
+    border:none;
+    cursor:pointer;
+    font-family:'Tajawal', sans-serif;
   }
 
   /* ---- Card: join & vote ---- */
@@ -215,6 +219,82 @@
     font-size:1.2rem;
   }
 
+  /* ---- Registration table page ---- */
+  #registration-view{
+    display:none;
+  }
+  .back-link{
+    display:inline-block;
+    margin-bottom:24px;
+    color:var(--cyan);
+    font-size:0.9rem;
+    text-decoration:none;
+    background:none;
+    border:none;
+    cursor:pointer;
+    font-family:'Tajawal', sans-serif;
+    padding:0;
+  }
+  .back-link:hover{ text-decoration:underline; }
+
+  .table-card{
+    background:linear-gradient(160deg, #241238 0%, #180D28 100%);
+    border:1px solid rgba(255,194,75,.25);
+    border-radius:24px;
+    padding:22px;
+    overflow-x:auto;
+  }
+
+  table{
+    width:100%;
+    border-collapse:collapse;
+    font-size:0.95rem;
+  }
+
+  caption{
+    caption-side:top;
+    text-align:left;
+    font-size:0.9rem;
+    line-height:1.7;
+    color:rgba(255,247,232,.8);
+    padding-bottom:16px;
+  }
+  caption b{
+    color:var(--gold);
+  }
+
+  thead th{
+    font-family:'Cairo', sans-serif;
+    font-weight:700;
+    text-align:left;
+    color:var(--gold);
+    padding:10px 12px;
+    border-bottom:2px solid rgba(255,194,75,.35);
+  }
+  thead th:last-child, tbody td:last-child{
+    text-align:right;
+  }
+  thead th:first-child, tbody td:first-child{
+    text-align:center;
+    width:44px;
+  }
+
+  tbody td{
+    padding:10px 12px;
+    border-bottom:1px solid rgba(255,255,255,.06);
+  }
+  tbody tr:nth-child(even){
+    background:var(--row-alt);
+  }
+  tbody tr:hover{
+    background:rgba(255,194,75,.08);
+  }
+
+  .xp{
+    font-weight:700;
+    color:var(--cyan);
+  }
+
   @media (max-width:420px){
     .trophy .name{font-size:2.1rem;}
     .trophy h2{font-size:1.7rem;}
@@ -225,45 +305,123 @@
 
 <div class="wrap">
 
-  <div class="section-tag">
-    <span class="bullhorn">📢</span>
-    <h1>News:efootball_masters</h1>
-  </div>
+  <!-- ===== NEWS VIEW ===== -->
+  <div id="news-view">
 
-  <div class="card reg">
-    <span class="flame">🔥</span>
-    <h2>Registration for the new tournament is now open (champions cup!)</h2>
-    <p>scroll down and join group and vote 🐦‍🔥🐦‍🔥</p>
-    <a class="cta" href="#" style="text-decoration:none;">Register now</a>
-  </div>
-
-  <div class="card vote">
-    <span class="flame">🗳️</span>
-    <h2>Join the group and vote here</h2>
-    <p>Hop into our WhatsApp group to have your say and cast your vote.</p>
-    <a class="cta cta-alt" href="https://chat.whatsapp.com/JSJch2tadQxBFm0JaGsJD7" target="_blank" rel="noopener" style="text-decoration:none;">Join &amp; Vote</a>
-  </div>
-
-  <div class="card trophy">
-    <div class="trophy-glow"></div>
-    <div class="starfield">
-      <span style="top:10%; right:12%; font-size:1.1rem;">★</span>
-      <span style="top:22%; left:8%; font-size:0.8rem;">✦</span>
-      <span style="top:55%; left:14%; font-size:1.3rem;">★</span>
-      <span style="top:65%; right:8%; font-size:0.9rem;">✦</span>
-      <span style="top:8%; left:40%; font-size:0.7rem;">✦</span>
-      <span style="bottom:8%; right:30%; font-size:1rem;">★</span>
-      <span style="top:38%; right:22%; font-size:0.6rem;">✦</span>
+    <div class="section-tag">
+      <span class="bullhorn">📢</span>
+      <h1>News: efootball_masters</h1>
     </div>
-    <span class="trophy-emoji">🏆</span>
-    <div class="eyebrow">Tournament Champion</div>
-    <h2>Congratulations</h2>
-    <div class="name">mo karrem!</div>
-    <p>An achievement well deserved. Keep shining, and we'll see you in the next tournament.</p>
-    <div class="confetti-row">🎉 🥇 🎊</div>
+
+    <div class="card reg">
+      <span class="flame">🔥</span>
+      <h2>a new xp table has been opened if u want to join vote in the group </h2>
+      <p>the(none!)tournament is working now</p>
+      <button class="cta" onclick="showRegistration()">xp table</button>
+    </div>
+
+    <div class="card vote">
+      <span class="flame">🗳️</span>
+      <h2>Join the group and vote here</h2>
+      <p>Hop into our WhatsApp group to have your say and cast your vote.</p>
+      <a class="cta cta-alt" href="https://chat.whatsapp.com/JSJch2tadQxBFm0JaGsJD7" target="_blank" rel="noopener" style="text-decoration:none;">Join &amp; Vote</a>
+    </div>
+
+    <div class="card trophy">
+      <div class="trophy-glow"></div>
+      <div class="starfield">
+        <span style="top:10%; right:12%; font-size:1.1rem;">★</span>
+        <span style="top:22%; left:8%; font-size:0.8rem;">✦</span>
+        <span style="top:55%; left:14%; font-size:1.3rem;">★</span>
+        <span style="top:65%; right:8%; font-size:0.9rem;">✦</span>
+        <span style="top:8%; left:40%; font-size:0.7rem;">✦</span>
+        <span style="bottom:8%; right:30%; font-size:1rem;">★</span>
+        <span style="top:38%; right:22%; font-size:0.6rem;">✦</span>
+      </div>
+      <span class="trophy-emoji">🏆</span>
+      <div class="eyebrow">Tournament Champion</div>
+      <h2>Congratulations</h2>
+      <div class="name">mo karrem!</div>
+      <p>An achievement well deserved. Keep shining, and we'll see you in the next tournament.</p>
+      <div class="confetti-row">🎉 🥇 🎊</div>
+    </div>
+
+  </div>
+
+  <!-- ===== REGISTRATION / LEADERBOARD VIEW ===== -->
+  <div id="registration-view">
+
+    <div class="section-tag">
+      <span class="bullhorn">🏆</span>
+      <h1>Champions Cup — xp table  Players</h1>
+    </div>
+
+    <button class="back-link" onclick="showNews()">&larr; Back to News</button>
+
+    <div class="table-card">
+      <table>
+        <caption>
+          List of players registered for the Champions Cup tournament.
+          <b>If you win one tournament, your XP will increase by 10 points.</b>
+        </caption>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Player Name</th>
+            <th>XP Points</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td>not reserved</td><td class="xp">0</td></tr>
+          <tr><td>2</td><td>not reserved</td><td class="xp">0</td></tr>
+          <tr><td>3</td><td>not reserved</td><td class="xp">0</td></tr>
+          <tr><td>4</td><td>not reserved</td><td class="xp">0</td></tr>
+          <tr><td>5</td><td>not reserved</td><td class="xp">0</td></tr>
+          <tr><td>6</td><td>not reserved</td><td class="xp">0</td></tr>
+          <tr><td>7</td><td>not reserved</td><td class="xp">0</td></tr>
+          <tr><td>8</td><td>not reserved</td><td class="xp">0</td></tr>
+          <tr><td>9</td><td>not reserved</td><td class="xp">0</td></tr>
+          <tr><td>10</td><td>not reserved</td><td class="xp">0</td></tr>
+          <tr><td>11</td><td>not reserved</td><td class="xp">0</td></tr>
+          <tr><td>12</td><td>not reserved</td><td class="xp">0</td></tr>
+          <tr><td>13</td><td>not reserved</td><td class="xp">0</td></tr>
+          <tr><td>14</td><td>not reserved</td><td class="xp">0</td></tr>
+          <tr><td>15</td><td>RapidFox</td><td class="xp">0</td></tr>
+          <tr><td>16</td><td>MysticRider</td><td class="xp">0</td></tr>
+          <tr><td>17</td><td>not reserved</td><td class="xp">0</td></tr>
+          <tr><td>18</td><td>not reserved</td><td class="xp">0</td></tr>
+          <tr><td>19</td><td>not reserved</td><td class="xp">0</td></tr>
+          <tr><td>20</td><td>not reserved</td><td class="xp">0</td></tr>
+          <tr><td>21</td><td>ObsidianKing</td><td class="xp">0</td></tr>
+          <tr><td>22</td><td>not reserved</td><td class="xp">0</td></tr>
+          <tr><td>23</td><td>not reserved</td><td class="xp">0</td></tr>
+          <tr><td>24</td><td>not reserved</td><td class="xp">0</td></tr>
+          <tr><td>25</td><td>not reserved</td><td class="xp">0</td></tr>
+          <tr><td>26</td><td>not reserved</td><td class="xp">0</td></tr>
+          <tr><td>27</td><td>not reserved</td><td class="xp">0</td></tr>
+          <tr><td>28</td><td>not reserved</td><td class="xp">0</td></tr>
+          <tr><td>29</td><td>not reserved</td><td class="xp">0</td></tr>
+          <tr><td>30</td><td>not reserved</td><td class="xp">0</td></tr>
+        </tbody>
+      </table>
+    </div>
+
   </div>
 
 </div>
+
+<script>
+  function showRegistration(){
+    document.getElementById('news-view').style.display = 'none';
+    document.getElementById('registration-view').style.display = 'block';
+    window.scrollTo(0,0);
+  }
+  function showNews(){
+    document.getElementById('registration-view').style.display = 'none';
+    document.getElementById('news-view').style.display = 'block';
+    window.scrollTo(0,0);
+  }
+</script>
 
 </body>
 </html>
