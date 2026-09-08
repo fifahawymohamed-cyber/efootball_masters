@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<head> 
+<head>
     <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-CKBQSY679H"></script>
 <script>
@@ -11,20 +11,28 @@
   gtag('config', 'G-CKBQSY679H');
 </script>
 <meta charset="UTF-8">
-<title>News:efootball_masters</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>News — efootball_masters</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@500;700;900&family=Tajawal:wght@400;500;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@600;800;900&family=Tajawal:wght@400;500;700&display=swap');
 
   :root{
     --ink:#150C2E;
     --deep:#231145;
     --violet:#4B2A8F;
+    --violet-soft:#6B3FB8;
     --gold:#FFC24B;
     --gold-deep:#E8A020;
     --pink:#FF5CA8;
     --cyan:#3FE0D0;
+    --green:#2FE0A8;
     --paper:#FFF7E8;
-    --row-alt:rgba(255,255,255,.04);
+    --paper-dim:rgba(255,247,232,.72);
+    --paper-dimmer:rgba(255,247,232,.5);
+    --row-alt:rgba(255,255,255,.035);
+    --line:rgba(255,255,255,.08);
+    --card-radius:22px;
+    --shadow-deep:0 18px 40px rgba(9,4,24,.45);
   }
 
   *{box-sizing:border-box; margin:0; padding:0;}
@@ -32,11 +40,11 @@
   body{
     font-family:'Tajawal', sans-serif;
     background:
-      radial-gradient(circle at 15% 10%, #3a1f70 0%, transparent 45%),
-      radial-gradient(circle at 85% 85%, #2a1450 0%, transparent 50%),
+      radial-gradient(circle at 12% 6%, #3a1f70 0%, transparent 42%),
+      radial-gradient(circle at 88% 88%, #2a1450 0%, transparent 48%),
       var(--ink);
     color:var(--paper);
-    padding:48px 20px;
+    padding:44px 18px 60px;
     min-height:100vh;
     overflow-x:hidden;
   }
@@ -46,61 +54,97 @@
     margin:0 auto;
   }
 
-  .section-tag{
+  /* ---- Header ---- */
+  .masthead{
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap:16px;
+    margin-bottom:30px;
+    padding-bottom:22px;
+    border-bottom:1px solid var(--line);
+  }
+  .masthead .brand{
     display:flex;
     align-items:center;
     gap:12px;
-    margin-bottom:28px;
   }
-  .section-tag .bullhorn{
-    font-size:1.6rem;
-    filter:drop-shadow(0 0 10px rgba(255,194,75,.6));
+  .masthead .bullhorn{
+    font-size:1.5rem;
+    filter:drop-shadow(0 0 10px rgba(255,194,75,.55));
   }
-  .section-tag h1{
+  .masthead h1{
     font-family:'Cairo', sans-serif;
     font-weight:900;
-    font-size:1.7rem;
-    letter-spacing:0.5px;
+    font-size:1.4rem;
+    letter-spacing:0.2px;
+    line-height:1.2;
+  }
+  .masthead .sub{
+    font-size:0.8rem;
+    color:var(--paper-dimmer);
+    margin-top:2px;
+  }
+  .version-chip{
+    flex-shrink:0;
+    display:flex;
+    align-items:center;
+    gap:6px;
+    background:rgba(63,224,208,.1);
+    border:1px solid rgba(63,224,208,.35);
+    color:var(--cyan);
+    font-size:0.78rem;
+    font-weight:700;
+    padding:6px 12px;
+    border-radius:999px;
+    white-space:nowrap;
+  }
+  .version-chip .dot{
+    width:6px; height:6px;
+    border-radius:50%;
+    background:var(--cyan);
+    box-shadow:0 0 8px var(--cyan);
   }
 
   .card{
     position:relative;
-    border-radius:26px;
+    border-radius:var(--card-radius);
     padding:28px 26px;
-    margin-bottom:22px;
+    margin-bottom:20px;
     overflow:hidden;
     isolation:isolate;
+    box-shadow:var(--shadow-deep);
   }
 
-  /* ---- Card 1: registration open ---- */
+  /* ---- Card: registration open ---- */
   .card.reg{
-    background:linear-gradient(135deg, var(--violet) 0%, #6B3FB8 55%, #8A4FD6 100%);
-    border:1px solid rgba(255,255,255,.12);
+    background:linear-gradient(135deg, var(--violet) 0%, var(--violet-soft) 55%, #8A4FD6 100%);
+    border:1px solid rgba(255,255,255,.14);
   }
   .card.reg::before{
     content:"";
     position:absolute;
     inset:0;
-    background:
-      radial-gradient(circle at 90% -10%, rgba(255,255,255,.22), transparent 40%);
+    background:radial-gradient(circle at 90% -10%, rgba(255,255,255,.22), transparent 40%);
     z-index:-1;
   }
   .reg .flame{
-    font-size:1.9rem;
+    font-size:1.7rem;
     display:inline-block;
     margin-bottom:10px;
   }
   .reg h2{
     font-family:'Cairo', sans-serif;
-    font-weight:900;
-    font-size:1.5rem;
+    font-weight:800;
+    font-size:1.3rem;
     line-height:1.5;
     margin-bottom:8px;
+    max-width:32ch;
   }
   .reg p{
-    font-size:0.98rem;
-    line-height:1.9;
-    color:rgba(255,247,232,.88);
+    font-size:0.95rem;
+    line-height:1.8;
+    color:rgba(255,247,232,.86);
     max-width:34ch;
   }
   .cta{
@@ -109,19 +153,115 @@
     background:var(--gold);
     color:#2A1500;
     font-weight:700;
-    font-size:0.95rem;
-    padding:11px 26px;
+    font-size:0.92rem;
+    padding:11px 24px;
     border-radius:999px;
-    box-shadow:0 6px 18px rgba(255,194,75,.35);
+    box-shadow:0 8px 20px rgba(255,194,75,.35);
     border:none;
     cursor:pointer;
     font-family:'Tajawal', sans-serif;
+    transition:transform .15s ease, box-shadow .15s ease;
   }
+  .cta:hover{ transform:translateY(-1px); box-shadow:0 10px 24px rgba(255,194,75,.45); }
+  .cta:active{ transform:translateY(0); }
+
+  /* ---- Mini leaderboard preview ---- */
+  .preview-head{
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    gap:10px;
+    margin-bottom:16px;
+  }
+  .preview-head .title-group{
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .preview-head .cup{ font-size:1.1rem; }
+  .preview-head h3{
+    font-family:'Cairo', sans-serif;
+    font-weight:800;
+    font-size:1.05rem;
+  }
+  .preview-head .updated{
+    font-size:0.72rem;
+    color:var(--paper-dimmer);
+  }
+
+  .mini-list{
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+    margin-bottom:16px;
+  }
+  .mini-row{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:9px 10px;
+    border-radius:12px;
+    background:rgba(255,255,255,.03);
+    border:1px solid rgba(255,255,255,.05);
+  }
+  .mini-rank{
+    width:22px;
+    height:22px;
+    border-radius:7px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:'Cairo', sans-serif;
+    font-weight:800;
+    font-size:0.75rem;
+    color:var(--ink);
+    background:var(--paper-dimmer);
+    flex-shrink:0;
+  }
+  .mini-row:nth-child(1) .mini-rank{ background:var(--gold); }
+  .mini-row:nth-child(2) .mini-rank{ background:#D8DEE9; }
+  .mini-row:nth-child(3) .mini-rank{ background:#E3A16B; }
+  .mini-name{
+    flex:1;
+    font-size:0.9rem;
+    font-weight:500;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+  }
+  .mini-name .tag{
+    color:var(--paper-dimmer);
+    font-weight:400;
+    font-size:0.8rem;
+  }
+  .mini-xp{
+    font-family:'Cairo', sans-serif;
+    font-weight:800;
+    font-size:0.85rem;
+    color:var(--cyan);
+    flex-shrink:0;
+  }
+  .see-all{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    background:transparent;
+    border:1px solid rgba(255,194,75,.4);
+    color:var(--gold);
+    font-weight:700;
+    font-size:0.88rem;
+    padding:10px 20px;
+    border-radius:999px;
+    cursor:pointer;
+    font-family:'Tajawal', sans-serif;
+    transition:background .15s ease, border-color .15s ease;
+  }
+  .see-all:hover{ background:rgba(255,194,75,.08); border-color:rgba(255,194,75,.7); }
 
   /* ---- Card: join & vote ---- */
   .card.vote{
-    background:linear-gradient(135deg, #1F8A70 0%, #12B886 55%, #2FE0A8 100%);
-    border:1px solid rgba(255,255,255,.12);
+    background:linear-gradient(135deg, #1F8A70 0%, #12B886 55%, var(--green) 100%);
+    border:1px solid rgba(255,255,255,.14);
   }
   .card.vote::before{
     content:"";
@@ -132,39 +272,32 @@
   }
   .vote h2{
     font-family:'Cairo', sans-serif;
-    font-weight:900;
-    font-size:1.5rem;
+    font-weight:800;
+    font-size:1.3rem;
     line-height:1.5;
     margin-bottom:8px;
   }
   .vote p{
-    font-size:0.98rem;
-    line-height:1.9;
+    font-size:0.95rem;
+    line-height:1.8;
     color:rgba(255,247,232,.9);
     max-width:36ch;
   }
   .cta-alt{
     background:#0B3D2E;
     color:var(--paper) !important;
+    box-shadow:0 8px 20px rgba(11,61,46,.4);
   }
 
-  /* ---- Card 2: congratulations trophy ---- */
+  /* ---- Card: congratulations trophy ---- */
   .card.trophy{
     background:linear-gradient(160deg, #241238 0%, #180D28 100%);
     border:1px solid rgba(255,194,75,.25);
     text-align:center;
     padding:40px 24px 34px;
   }
-  .starfield{
-    position:absolute;
-    inset:0;
-    z-index:-1;
-  }
-  .starfield span{
-    position:absolute;
-    color:var(--gold);
-    opacity:.85;
-  }
+  .starfield{ position:absolute; inset:0; z-index:-1; }
+  .starfield span{ position:absolute; color:var(--gold); opacity:.85; }
   .trophy-glow{
     position:absolute;
     top:-40px; left:50%;
@@ -174,7 +307,7 @@
     z-index:-1;
   }
   .trophy-emoji{
-    font-size:3.6rem;
+    font-size:3.4rem;
     display:block;
     margin-bottom:6px;
     filter:drop-shadow(0 8px 20px rgba(255,194,75,.5));
@@ -182,14 +315,14 @@
   .trophy .eyebrow{
     font-family:'Cairo', sans-serif;
     font-weight:700;
-    font-size:0.85rem;
+    font-size:0.82rem;
     color:var(--cyan);
     margin-bottom:6px;
   }
   .trophy h2{
     font-family:'Cairo', sans-serif;
     font-weight:900;
-    font-size:2.1rem;
+    font-size:1.9rem;
     background:linear-gradient(90deg, var(--gold) 0%, #FFE7A8 50%, var(--gold) 100%);
     -webkit-background-clip:text;
     background-clip:text;
@@ -199,13 +332,13 @@
   .trophy .name{
     font-family:'Cairo', sans-serif;
     font-weight:900;
-    font-size:2.6rem;
+    font-size:2.4rem;
     color:var(--paper);
     margin-bottom:14px;
     text-shadow:0 0 24px rgba(255,92,168,.5);
   }
   .trophy p{
-    font-size:0.95rem;
+    font-size:0.93rem;
     color:rgba(255,247,232,.75);
     line-height:1.8;
     max-width:32ch;
@@ -216,18 +349,26 @@
     justify-content:center;
     gap:10px;
     margin-top:20px;
-    font-size:1.2rem;
+    font-size:1.15rem;
+  }
+
+  footer.foot{
+    text-align:center;
+    margin-top:30px;
+    font-size:0.75rem;
+    color:var(--paper-dimmer);
   }
 
   /* ---- Registration table page ---- */
-  #registration-view{
-    display:none;
-  }
+  #registration-view{ display:none; }
+
   .back-link{
-    display:inline-block;
-    margin-bottom:24px;
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    margin-bottom:22px;
     color:var(--cyan);
-    font-size:0.9rem;
+    font-size:0.88rem;
     text-decoration:none;
     background:none;
     border:none;
@@ -237,67 +378,116 @@
   }
   .back-link:hover{ text-decoration:underline; }
 
+  .board-head{
+    margin-bottom:20px;
+    padding-bottom:20px;
+    border-bottom:1px solid var(--line);
+  }
+  .board-head h1{
+    font-family:'Cairo', sans-serif;
+    font-weight:900;
+    font-size:1.5rem;
+    margin-bottom:6px;
+  }
+  .board-head .rule{
+    font-size:0.88rem;
+    color:var(--paper-dim);
+    line-height:1.7;
+    max-width:46ch;
+  }
+  .board-head .rule b{ color:var(--gold); font-weight:700; }
+  .board-meta{
+    display:flex;
+    gap:16px;
+    margin-top:14px;
+    flex-wrap:wrap;
+  }
+  .board-meta .stat{
+    font-size:0.78rem;
+    color:var(--paper-dimmer);
+  }
+  .board-meta .stat strong{
+    display:block;
+    font-family:'Cairo', sans-serif;
+    font-size:1.1rem;
+    color:var(--paper);
+    font-weight:800;
+  }
+
   .table-card{
     background:linear-gradient(160deg, #241238 0%, #180D28 100%);
-    border:1px solid rgba(255,194,75,.25);
-    border-radius:24px;
-    padding:22px;
-    overflow-x:auto;
+    border:1px solid rgba(255,194,75,.2);
+    border-radius:var(--card-radius);
+    padding:8px;
+    box-shadow:var(--shadow-deep);
+    overflow:hidden;
   }
 
   table{
     width:100%;
     border-collapse:collapse;
-    font-size:0.95rem;
-  }
-
-  caption{
-    caption-side:top;
-    text-align:left;
-    font-size:0.9rem;
-    line-height:1.7;
-    color:rgba(255,247,232,.8);
-    padding-bottom:16px;
-  }
-  caption b{
-    color:var(--gold);
+    font-size:0.92rem;
   }
 
   thead th{
     font-family:'Cairo', sans-serif;
     font-weight:700;
+    font-size:0.78rem;
     text-align:left;
-    color:var(--gold);
-    padding:10px 12px;
-    border-bottom:2px solid rgba(255,194,75,.35);
+    color:var(--gold-deep);
+    padding:14px 16px 12px;
   }
-  thead th:last-child, tbody td:last-child{
-    text-align:right;
-  }
-  thead th:first-child, tbody td:first-child{
-    text-align:center;
-    width:44px;
-  }
+  thead th:last-child, tbody td:last-child{ text-align:right; }
+  thead th:first-child, tbody td:first-child{ text-align:center; width:48px; }
 
   tbody td{
-    padding:10px 12px;
-    border-bottom:1px solid rgba(255,255,255,.06);
+    padding:11px 16px;
+    border-top:1px solid var(--line);
   }
-  tbody tr:nth-child(even){
-    background:var(--row-alt);
+  tbody tr:nth-child(even){ background:var(--row-alt); }
+  tbody tr:hover{ background:rgba(255,194,75,.06); }
+  tbody tr:first-child td{ border-top:1px solid var(--line); }
+
+  .rank-badge{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:26px; height:26px;
+    border-radius:8px;
+    font-family:'Cairo', sans-serif;
+    font-weight:800;
+    font-size:0.78rem;
+    color:var(--paper-dimmer);
   }
-  tbody tr:hover{
-    background:rgba(255,194,75,.08);
+  tr.rank-1 .rank-badge{ background:var(--gold); color:#2A1500; }
+  tr.rank-2 .rank-badge{ background:#D8DEE9; color:#1c1c1c; }
+  tr.rank-3 .rank-badge{ background:#E3A16B; color:#2A1500; }
+
+  .player-name{ font-weight:500; }
+  .player-name .handle-tag{
+    display:block;
+    font-size:0.76rem;
+    color:var(--paper-dimmer);
+    font-weight:400;
+    margin-top:1px;
   }
+  .player-name.open{ color:var(--paper-dimmer); font-style:italic; }
 
   .xp{
-    font-weight:700;
+    font-family:'Cairo', sans-serif;
+    font-weight:800;
     color:var(--cyan);
   }
 
   @media (max-width:420px){
-    .trophy .name{font-size:2.1rem;}
-    .trophy h2{font-size:1.7rem;}
+    .trophy .name{ font-size:2rem; }
+    .trophy h2{ font-size:1.6rem; }
+    .masthead h1{ font-size:1.2rem; }
+    thead th, tbody td{ padding-left:10px; padding-right:10px; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .cta, .see-all{ transition:none; }
   }
 </style>
 </head>
@@ -308,16 +498,50 @@
   <!-- ===== NEWS VIEW ===== -->
   <div id="news-view">
 
-    <div class="section-tag">
-      <span class="bullhorn">📢</span>
-      <h1>News: efootball_masters</h1>
+    <div class="masthead">
+      <div class="brand">
+        <span class="bullhorn">📢</span>
+        <div>
+          <h1>News: efootball_masters</h1>
+          <div class="sub">Community tournament updates</div>
+        </div>
+      </div>
+      <span class="version-chip"><span class="dot"></span>Update v2</span>
     </div>
 
     <div class="card reg">
       <span class="flame">🔥</span>
-      <h2>a new xp table has been opened if u want to join vote in the group </h2>
-      <p>the(none!)tournament is working now</p>
-      <button class="cta" onclick="showRegistration()">xp table</button>
+      <h2>The XP table is open — join and vote in the group</h2>
+      <p>The (none!) tournament is up and running.</p>
+      <button class="cta" onclick="showRegistration()">Open XP table</button>
+    </div>
+
+    <div class="card reg" style="background:linear-gradient(160deg, #241238 0%, #180D28 100%); border:1px solid rgba(255,194,75,.22);">
+      <div class="preview-head">
+        <div class="title-group">
+          <span class="cup">🏆</span>
+          <h3>Champions Cup — Top 3</h3>
+        </div>
+        <span class="updated">Live standings</span>
+      </div>
+      <div class="mini-list">
+        <div class="mini-row">
+          <span class="mini-rank">1</span>
+          <span class="mini-name">not_yamal0 <span class="tag">(tylr)</span></span>
+          <span class="mini-xp">0 XP</span>
+        </div>
+        <div class="mini-row">
+          <span class="mini-rank">2</span>
+          <span class="mini-name">plainacc <span class="tag">(AMAN Chhetri)</span></span>
+          <span class="mini-xp">0 XP</span>
+        </div>
+        <div class="mini-row">
+          <span class="mini-rank">3</span>
+          <span class="mini-name">BadmanToast <span class="tag">(Hassan)</span></span>
+          <span class="mini-xp">0 XP</span>
+        </div>
+      </div>
+      <button class="see-all" onclick="showRegistration()">See full table</button>
     </div>
 
     <div class="card vote">
@@ -346,62 +570,65 @@
       <div class="confetti-row">🎉 🥇 🎊</div>
     </div>
 
+    <footer class="foot">efootball_masters — community-run tournaments</footer>
+
   </div>
 
   <!-- ===== REGISTRATION / LEADERBOARD VIEW ===== -->
   <div id="registration-view">
 
-    <div class="section-tag">
-      <span class="bullhorn">🏆</span>
-      <h1>Champions Cup — xp table  Players</h1>
-    </div>
-
     <button class="back-link" onclick="showNews()">&larr; Back to News</button>
+
+    <div class="board-head">
+      <h1>XP Table</h1>
+      <p class="rule">List of players registered for the Champions Cup tournament. <b>Win a tournament and your XP increases by 10 points.</b></p>
+      <div class="board-meta">
+        <div class="stat"><strong>30</strong>Slots total</div>
+        <div class="stat"><strong>6</strong>Reserved</div>
+        <div class="stat"><strong>24</strong>Open</div>
+      </div>
+    </div>
 
     <div class="table-card">
       <table>
-        <caption>
-          List of players registered for the Champions Cup tournament.
-          <b>If you win one tournament, your XP will increase by 10 points.</b>
-        </caption>
         <thead>
           <tr>
             <th>#</th>
-            <th>Player Name</th>
-            <th>XP Points</th>
+            <th>Player</th>
+            <th>XP</th>
           </tr>
         </thead>
         <tbody>
-          <tr><td>1</td><td>not_yamal0 (tylr)</td><td class="xp">0</td></tr>
-          <tr><td>2</td><td>plainacc (AMAN Chhetri)</td><td class="xp">0</td></tr>
-          <tr><td>3</td><td>BadmanToast (Hassan)</td><td class="xp">0</td></tr>
-          <tr><td>4</td><td>lion of elders (shyaka)</td><td class="xp">0</td></tr>
-          <tr><td>5</td><td>BK2FINE_ST (~🄱🄺_2🄵🄸🄽🄴)</td><td class="xp">0</td></tr>
-          <tr><td>6</td><td>not reserved</td><td class="xp">0</td></tr>
-          <tr><td>7</td><td>not reserved</td><td class="xp">0</td></tr>
-          <tr><td>8</td><td>not reserved</td><td class="xp">0</td></tr>
-          <tr><td>9</td><td>not reserved</td><td class="xp">0</td></tr>
-          <tr><td>10</td><td>not reserved</td><td class="xp">0</td></tr>
-          <tr><td>11</td><td>not reserved</td><td class="xp">0</td></tr>
-          <tr><td>12</td><td>not reserved</td><td class="xp">0</td></tr>
-          <tr><td>13</td><td>not reserved</td><td class="xp">0</td></tr>
-          <tr><td>14</td><td>not reserved</td><td class="xp">0</td></tr>
-          <tr><td>15</td><td>not reserved</td><td class="xp">0</td></tr>
-          <tr><td>16</td><td>not reserved</td><td class="xp">0</td></tr>
-          <tr><td>17</td><td>not reserved</td><td class="xp">0</td></tr>
-          <tr><td>18</td><td>not reserved</td><td class="xp">0</td></tr>
-          <tr><td>19</td><td>not reserved</td><td class="xp">0</td></tr>
-          <tr><td>20</td><td>not reserved</td><td class="xp">0</td></tr>
-          <tr><td>21</td><td>not reserved</td><td class="xp">0</td></tr>
-          <tr><td>22</td><td>not reserved</td><td class="xp">0</td></tr>
-          <tr><td>23</td><td>not reserved</td><td class="xp">0</td></tr>
-          <tr><td>24</td><td>not reserved</td><td class="xp">0</td></tr>
-          <tr><td>25</td><td>not reserved</td><td class="xp">0</td></tr>
-          <tr><td>26</td><td>not reserved</td><td class="xp">0</td></tr>
-          <tr><td>27</td><td>not reserved</td><td class="xp">0</td></tr>
-          <tr><td>28</td><td>not reserved</td><td class="xp">0</td></tr>
-          <tr><td>29</td><td>not reserved</td><td class="xp">0</td></tr>
-          <tr><td>30</td><td>not reserved</td><td class="xp">0</td></tr>
+          <tr class="rank-1"><td><span class="rank-badge">1</span></td><td class="player-name">not_yamal0<span class="handle-tag">tylr</span></td><td class="xp">0</td></tr>
+          <tr class="rank-2"><td><span class="rank-badge">2</span></td><td class="player-name">plainacc<span class="handle-tag">AMAN Chhetri</span></td><td class="xp">0</td></tr>
+          <tr class="rank-3"><td><span class="rank-badge">3</span></td><td class="player-name">BadmanToast<span class="handle-tag">Hassan</span></td><td class="xp">0</td></tr>
+          <tr><td><span class="rank-badge">4</span></td><td class="player-name">lion of elders<span class="handle-tag">shyaka</span></td><td class="xp">0</td></tr>
+          <tr><td><span class="rank-badge">5</span></td><td class="player-name">BK2FINE_ST<span class="handle-tag">~🄱🄺_2🄵🄸🄽🄴</span></td><td class="xp">0</td></tr>
+          <tr><td><span class="rank-badge">6</span></td><td class="player-name">Rosh_10<span class="handle-tag">speed</span></td><td class="xp">0</td></tr>
+          <tr><td><span class="rank-badge">7</span></td><td class="player-name open">Open slot</td><td class="xp">—</td></tr>
+          <tr><td><span class="rank-badge">8</span></td><td class="player-name open">Open slot</td><td class="xp">—</td></tr>
+          <tr><td><span class="rank-badge">9</span></td><td class="player-name open">Open slot</td><td class="xp">—</td></tr>
+          <tr><td><span class="rank-badge">10</span></td><td class="player-name open">Open slot</td><td class="xp">—</td></tr>
+          <tr><td><span class="rank-badge">11</span></td><td class="player-name open">Open slot</td><td class="xp">—</td></tr>
+          <tr><td><span class="rank-badge">12</span></td><td class="player-name open">Open slot</td><td class="xp">—</td></tr>
+          <tr><td><span class="rank-badge">13</span></td><td class="player-name open">Open slot</td><td class="xp">—</td></tr>
+          <tr><td><span class="rank-badge">14</span></td><td class="player-name open">Open slot</td><td class="xp">—</td></tr>
+          <tr><td><span class="rank-badge">15</span></td><td class="player-name open">Open slot</td><td class="xp">—</td></tr>
+          <tr><td><span class="rank-badge">16</span></td><td class="player-name open">Open slot</td><td class="xp">—</td></tr>
+          <tr><td><span class="rank-badge">17</span></td><td class="player-name open">Open slot</td><td class="xp">—</td></tr>
+          <tr><td><span class="rank-badge">18</span></td><td class="player-name open">Open slot</td><td class="xp">—</td></tr>
+          <tr><td><span class="rank-badge">19</span></td><td class="player-name open">Open slot</td><td class="xp">—</td></tr>
+          <tr><td><span class="rank-badge">20</span></td><td class="player-name open">Open slot</td><td class="xp">—</td></tr>
+          <tr><td><span class="rank-badge">21</span></td><td class="player-name open">Open slot</td><td class="xp">—</td></tr>
+          <tr><td><span class="rank-badge">22</span></td><td class="player-name open">Open slot</td><td class="xp">—</td></tr>
+          <tr><td><span class="rank-badge">23</span></td><td class="player-name open">Open slot</td><td class="xp">—</td></tr>
+          <tr><td><span class="rank-badge">24</span></td><td class="player-name open">Open slot</td><td class="xp">—</td></tr>
+          <tr><td><span class="rank-badge">25</span></td><td class="player-name open">Open slot</td><td class="xp">—</td></tr>
+          <tr><td><span class="rank-badge">26</span></td><td class="player-name open">Open slot</td><td class="xp">—</td></tr>
+          <tr><td><span class="rank-badge">27</span></td><td class="player-name open">Open slot</td><td class="xp">—</td></tr>
+          <tr><td><span class="rank-badge">28</span></td><td class="player-name open">Open slot</td><td class="xp">—</td></tr>
+          <tr><td><span class="rank-badge">29</span></td><td class="player-name open">Open slot</td><td class="xp">—</td></tr>
+          <tr><td><span class="rank-badge">30</span></td><td class="player-name open">Open slot</td><td class="xp">—</td></tr>
         </tbody>
       </table>
     </div>
